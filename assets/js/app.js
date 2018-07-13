@@ -99,14 +99,17 @@ $("form").on("submit", function (e) {
     //prevent form from actually submitting
     e.preventDefault();
 
+    //get trimmed input val and empty input
+    val = $input.val().trim();
+    $input.val("");
+
     //prevents generating empty buttons
-    if ($input.val() === "") {
+    if (val === "") {
         return;
     }
 
-    //push user input into array.  clear input.  generate buttons.
-    animals.push($input.val());
-    $input.val("");
+    //push user input into array. generate buttons.
+    animals.push(val);
     generateButtons();
 });
 
